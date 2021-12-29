@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CBIR app</title>
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/style.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/galery.css')}}"
+    />
+
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
+
+  </head>
+  <body>
+    <!-- partial:index.partial.html -->
+    <script
+      class="jsbin"
+      src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
+    ></script>
+
+    <!-- =============================== Header ========================================== -->
+    <header>
+      <h1>Tamura Texture</h1>
+      <nav>
+        <a href="">Contrast</a>
+        <a href="">Directionality</a>
+        <a href="">Coarseness</a>
+        <a href="">Linelikeness</a>
+        <a href="">Regularity</a>
+        <a href="">Roughness</a>
+      </nav>
+    </header>
+    <!-- =============================== Header ========================================== -->
+
+    <div class="main_container">
+      <!-- =============================== Upload Image ========================================== -->
+      <form action="/upload" method="POST" enctype="multipart/form-data">
+        
+        <div class="file-upload">
+          <input type="number" name="size" min="1" class="size" placeholder="Nombre d'images similaires">
+        </div>
+
+        <div class="file-upload">
+        <button
+          class="file-upload-btn"
+          type="button"
+          onclick="$('.file-upload-input').trigger( 'click' )">Add Image
+        </button>
+        <div class="image-upload-wrap">
+          <input
+            class="file-upload-input"
+            type="file"
+            name="img"
+            onchange="readURL(this);"
+            accept="image/"
+          />
+          <div class="drag-text">
+            <h3>Drag and drop a file br or select add Image</h3>
+          </div>
+        </div>
+        <div class="file-upload-content">
+          <img class="file-upload-image" src="#" alt="your image" />
+          <div class="image-title-wrap">
+            <button type="button" onclick="removeUpload()" class="remove-image">
+              Remove <span class="image-title">Uploaded Image</span>
+            </button>
+          </div>
+        </div>
+          <button class="search-btn" type="submit">Upload Image</button>
+      </div>
+      </form>
+      <!-- ================================== Upload Image ===================================== -->
+
+      <!-- ================================== Gallery ===================================== -->
+      <div class="container">
+        <h1 class="heading">
+          Résultat de recherche</span>
+        </h1>
+
+        <div class="gallery">
+          {% for img in images %}
+          <div class="gallery-item">
+            <img
+              class="gallery-image"
+              src="{{path}}/{{img[0]}}"/>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      <!-- ================================== Gallery ===================================== -->
+    </div>
+
+    <!-- partial -->
+    <script src="{{url_for('static', filename='js/script.js')}}"></script>
+  </body>
+</html>
