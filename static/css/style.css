@@ -78,7 +78,7 @@ body.sticky-header {
 body.sticky-header header {
   z-index: 1;
   height: 60px;
-  background-color: rgba(6, 97, 201, 0.986);
+  background-color: rgba(0, 0, 0, 0.986);
 }
 body.sticky-header header h1 {
   -moz-transform: scale(0, 0);
@@ -87,6 +87,11 @@ body.sticky-header header h1 {
   transform: scale(0, 0);
 }
 /* ====================================================================== */
+.container .gallery p {
+  text-align: center;
+  font-size: 14px;
+}
+
 .search-btn {
   width: 100%;
   margin: 0;
@@ -220,4 +225,27 @@ body.sticky-header header h1 {
 .remove-image:active {
   border: 0;
   transition: all 0.2s ease;
+}
+
+footer {
+  margin-top: 10%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 10px;
+  background-color: #000;
+  color: white;
+}
+footer .colonne p {
+  font-size: 14px;
+  color: #ccc;
+  cursor: pointer;
+}
+footer .colonne p:hover {
+  color: #fff;
+}
+
+footer .git-icon {
+  margin-top: 30px;
+  margin-left: 10px;
 }
