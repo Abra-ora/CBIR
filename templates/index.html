@@ -82,17 +82,44 @@
         </h1>
 
         <div class="gallery">
-          {% for img in images %}
-          <div class="gallery-item">
-            <img
-              class="gallery-image"
-              src="{{path}}/{{img[0]}}"/>
-          </div>
-          {% endfor %}
+          {% if images%}
+              {% for img in images %}
+              <div class="gallery-item">
+                <img
+                  class="gallery-image"
+                  src="{{path}}/{{img[0]}}"/>
+              </div>
+              {% endfor %}
+          {% else %}
+              <p>Essayez de passer une image</p>
+          {% endif %}
         </div>
       </div>
       <!-- ================================== Gallery ===================================== -->
     </div>
+
+    <!-- ================================== Footer ===================================== -->
+    <footer>
+      <div class="colonne">
+        <h2>Encadré par:</h2> <br>
+        <p>Pr.Aît Kbir</p>
+      </div>
+			<div class="colonne">
+				<h2>Encadré par:</h2>
+				<p>TALBI Ibrahim</p>
+        <p>ABALI Anas</p>
+				<p>ELAMANE Abdessamad</p>
+				<p>EL HAISSOUF Chaimaa</p>
+			</div>
+			<div class="colonne">
+				<h2>Code Source</h2>
+				<div class="git-icon">
+          <a href="https://github.com/Abra-ora/CBIR"><img src="../static/GitHub-Mark-Light-64px.png" alt=""></a>
+        </div>
+			</div>
+		</footer>
+    
+    <!-- ================================== Footer ===================================== -->
 
     <!-- partial -->
     <script src="{{url_for('static', filename='js/script.js')}}"></script>
